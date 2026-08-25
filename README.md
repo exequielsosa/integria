@@ -14,11 +14,11 @@ firma-base64.html   misma firma autocontenida (42 KB) — respaldo, no requiere 
 ## Uso
 
 1. Deployar en Vercel (proyecto estático, sin framework).
-2. Abrir `https://<deploy>/` para verificar que las imágenes cargan.
+2. Abrir `https://integria-khaki.vercel.app/` para verificar que las imágenes cargan.
 3. Reemplazar el placeholder de las URLs:
 
    ```bash
-   sed -i 's|https://TU-PROYECTO.vercel.app/firma|https://<deploy>/firma|g' firma-urls.html index.html
+   sed -i 's|https://integria-khaki.vercel.app/firma|https://integria-khaki.vercel.app/firma|g' firma-urls.html index.html
    ```
 
 4. Pegar el contenido de `firma-urls.html` como firma en el cliente de correo.
