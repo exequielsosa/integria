@@ -7,7 +7,8 @@ Hosting de las imágenes y del HTML de la firma de correo corporativa.
 ```
 firma/              PNG servidos por URL desde el HTML de la firma
 index.html          página de verificación del deploy
-firma-urls.html     firma para producción (6 KB) — la que se pega en el cliente de correo
+firma-outlook.html  documento completo listo para instalar en Outlook
+firma-urls.html     fragmento de la firma (solo la <table>)
 firma-base64.html   misma firma autocontenida (42 KB) — respaldo, no requiere hosting
 ```
 
@@ -21,7 +22,25 @@ firma-base64.html   misma firma autocontenida (42 KB) — respaldo, no requiere 
    sed -i 's|https://integria-khaki.vercel.app/firma|https://integria-khaki.vercel.app/firma|g' firma-urls.html index.html
    ```
 
-4. Pegar el contenido de `firma-urls.html` como firma en el cliente de correo.
+4. Instalar `firma-outlook.html` como firma (ver abajo).
+
+## Instalar la firma en Outlook
+
+**Opción A — copiar y pegar (sirve para todas las versiones)**
+
+1. Abrir `firma-outlook.html` en Chrome o Edge.
+2. Seleccionar la firma con el mouse (o `Ctrl+A`) y copiar con `Ctrl+C`.
+3. En Outlook: Archivo → Opciones → Correo → Firmas → Nueva, y pegar con `Ctrl+V`.
+
+**Opción B — instalar el archivo (solo Outlook clásico de escritorio, más fiel)**
+
+1. Crear una firma vacía en Outlook con el nombre deseado, por ejemplo `Integria`.
+2. Abrir `%APPDATA%\Microsoft\Signatures` en el explorador.
+3. Reemplazar el contenido de `Integria.htm` por el de `firma-outlook.html`.
+
+Conviene enviarse un correo de prueba y revisarlo en Outlook de escritorio: usa el
+motor de Word y puede dibujar una línea de 1px en las uniones entre celdas con
+fondos distintos (el badge está en una celda con `rowspan`).
 
 ## Importante
 
